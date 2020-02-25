@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         }, 0)
       },
       foundCountry: function(){
-        if (this.countries && this.countryToFindIndex) {
+        if (this.countries && this.countryToFindIndex >= 0) {
           this.fetchDog()
           return this.countries[this.countryToFindIndex]
         }
