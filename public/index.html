@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Country information</title>
+    <script type="text/javascript" src="js/bundle.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>BESTful Country API fetcher</h1>
+        <h2>Total population of all countries: {{totalPopulation}}</h2>
+      </header>
+        <h3>Select a country to view</h3>
+        <select v-model="countryToFindIndex" >
+          <option v-for="(country, index) in countries" :value="index">{{country.name}}</option>
+        </select>
+        <br>
+        <div v-if="foundCountry" class="container">
+          <div class="box">
+            <h3>{{foundCountry.name}}</h3>
+            <img :src="foundCountry.flag"/>
+          </div>
+          <div class="box">
+            <h3>Mascot</h3>
+            <img :src="dogImgURL"/>
+          </div>
+        </div>
+        <div v-if="foundCountry">
+          <p><b>nativeName:</b> {{foundCountry.nativeName}}</p>
+          <p><b>population:</b> {{foundCountry.population}}</p>
+          <p><b>capital:</b> {{foundCountry.capital}}</p>
+          <p><b>region:</b> {{foundCountry.region}}</p>
+        </div>
+
+  </div>
+  </body>
+</html>
